@@ -76,12 +76,17 @@ Usuario1
 Caminho: C:\projetos\global\projeto-teste
 git config --global user.name "Usuario 1"
 git config --global user.email "usuario1@dominio.com"
+Aplica-se a todos projetos e repositórios GIT
 
+Então com o usuario2 eu faço um clone do projeto em C:\projetos\local\ com git clone https://github.com/lp2-grupo2/projeto-javalin.git
+
+Então você terá:
 Usuario2
 Caminho: C:\projetos\local\projeto-teste
 git config --local user.name "Usuario 2"
 git config --local user.email "usuario2@dominio.com"
 
+Dentro de \local\projeto-teste sobrescre o usuario1.
 
 Lembrando que: "projeto-teste" em global é o mesmo "projeto-teste" em local.
 
