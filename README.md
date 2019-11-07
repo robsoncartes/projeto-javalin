@@ -12,7 +12,7 @@ Trabalho de LP II - Fatec BD - 3° SEM
 
 ### Reqisitos
 
-[trabalho-final](https://github.com/oliveiramclaraa/LP_II_Trabalho/blob/master/requisitos/trabalho-final.pdf)
+[trabalho-final](https://github.com/lp2-grupo2/projeto-javalin/blob/master/requisitos/trabalho-final.pdf)
 
 ### Links Uteis
 
