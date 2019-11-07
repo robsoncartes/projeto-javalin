@@ -49,48 +49,7 @@ https://medium.com/danieldiasjava/criando-uma-aplica%C3%A7%C3%A3o-rest-com-javal
 |**git rm -r --cached**												   | Limpar o cache de todos os arquivos adicionados à área de Stage	|
 **git rm -r --cached** diretorio/arquivo							   | Limpar o cache do arquivo no diretório adicionado à área de Stage	|
 |----------------------------------------------------------------------|--------------------------------------------------------------------|
-|								**Opcional** 						   | 							**Descrição**							|
-|----------------------------------------------------------------------|--------------------------------------------------------------------|
-|**git config --local user.name "Nome do Usuário"**  				   | Configurar o nome do usuário (aplica-se a todos projetos)			|
-|**git config --local user.email "Email do Usuário"**				   | Configurar o email do usuário (aplica-se a todos projetos) 		|
-|----------------------------------------------------------------------|--------------------------------------------------------------------|
 
-**Observação**: é possível configurar duas contas de usuários de Github (ou Bitbucket, Gitlab) em uma mesma máquina, desde que claro, os emails sejam diferentes.
-Mas afinal, para que isso? Um só é suficiente. Claro que sim!
-
-Só que um dia se você precisar fazer testes de comandos GIT, permissões para executar PUSH RESQUESTS, MERGE entre outras
-coisas, e quiser saber como o outro usuário tem acesso, ou simplesmente praticar resoluções de problemas que podem acontecer, fica aí a sugestão.
-
-Funciona assim, primeiramente vamos pensar nas contas como usuario1 e usuario2, cada um com seu respectivo email usuario1@dominio.com e usuario2@dominio.com
-
-Configure o usuario1 no git, como --global. Esse usuário é o que será configurado para todos projetos, cada qual com seu repositório remoto.
-
-Para o usuario2 crie uma nova pasta para salvar o projeto localmente, afinal, queremos simular duas pessoas na mesma máquina.
-
-Configure o usuario2 no git como --local. Esse usuário será configurado para cada projeto específico, ou seja, se dentro de C:\projetos\local\ tiver
-os projetos: projeto1, projeto2, projeto_n, para cada um deles terá que ser configurado (nome e email).
-
-Por exemplo:
-
-Usuario1
-Caminho: C:\projetos\global\projeto-teste
-git config --global user.name "Usuario 1"
-git config --global user.email "usuario1@dominio.com"
-Aplica-se a todos projetos e repositórios GIT
-
-Então com o usuario2 eu faço um clone do projeto em C:\projetos\local\ com git clone https://github.com/lp2-grupo2/projeto-javalin.git
-
-Então você terá:
-Usuario2
-Caminho: C:\projetos\local\projeto-teste
-git config --local user.name "Usuario 2"
-git config --local user.email "usuario2@dominio.com"
-
-Dentro de \local\projeto-teste sobrescre o usuario1.
-
-Lembrando que: "projeto-teste" em global é o mesmo "projeto-teste" em local.
-
-Assim cada usuário trabalha em sua pasta, abra um terminal GIT na raiz do projeto de cada usuário. E agora você pode trabalhar na sua máquina, simulando interações com outro desenvolvedor.
 
 ### ALIAS (Apelidos para comandos ou conjunto de instruções)
 
