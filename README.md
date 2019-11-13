@@ -8,7 +8,6 @@ Trabalho de LP II - Fatec BD - 3° SEM
 * Matheus Luiz
 * Otavio Raposo
 * Robson Sousa
-* Vanessa Bessa
 
 ### Reqisitos
 
