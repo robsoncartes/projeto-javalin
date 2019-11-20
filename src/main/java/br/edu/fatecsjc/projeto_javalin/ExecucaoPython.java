@@ -1,14 +1,25 @@
 package br.edu.fatecsjc.projeto_javalin;
 
-import io.javalin.Javalin;
+import java.io.IOException;
 
-public class MainApplication {
+public class ExecucaoPython {
 
-    private static String helloWorld = "Hello World";
+    private Process p;
 
-    public static void main(String[] args) {
+    public ExecucaoPython() throws IOException {
+        p = Runtime.getRuntime().exec("/c/Users/Aluno/AppData/Local/Programs/Python/Python37-32/python",
+                new String[]{"/c/Users/Aluno/projeto-javalin/arquivos_py/hello.py"});
 
-        Javalin app = Javalin.create().start(7001);
-        app.get("/hello", ctx -> ctx.result(helloWorld));
     }
+
+/*    StringWriter writer = new StringWriter(); //ouput will be stored here
+
+    ScriptEngineManager manager = new ScriptEngineManager();
+    ScriptContext context = new SimpleScriptContext();
+
+    context.setWriter(writer); //configures output redirection
+    ScriptEngine engine = manager.getEngineByName("python");
+    engine.eval(new FileReader("projeto-javelin/arquivos_py/hello.py"), context);
+    System.out.println(writer.toString());
+    */
 }
