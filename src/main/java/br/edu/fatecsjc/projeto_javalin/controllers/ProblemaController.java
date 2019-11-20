@@ -45,5 +45,14 @@ public final class ProblemaController {
         }
 
         context.status(404).result("Arquivo não encontrado.");
+
+    }
+
+    public static Context inserir(Context context){
+
+        String problema = context.body();
+        System.out.println(problema);
+
+        return context;
     }
 }
