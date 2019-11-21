@@ -2,7 +2,6 @@ package br.edu.fatecsjc.projeto_javalin.controllers;
 
 import br.edu.fatecsjc.projeto_javalin.models.Problema;
 import io.javalin.http.Context;
-import org.eclipse.jetty.server.Response;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,11 +10,10 @@ import java.util.List;
 // final class para garantir que a mesma não pode ser herdada
 public final class ProblemaController {
 
-    private static Problema problema1 = new Problema("Arquivo1", "Problema 1", "Cod 1");
-    private static Problema problema2 = new Problema("Arquivo2", "Problema 2", "Cod 2");
-    private static Problema problema3 = new Problema("Arquivo3", "Problema 3", "Cod 3");
+    private static Problema problema1 = new Problema(1, "Arquivo1", "Problema 1", "Cod 1");
+    private static Problema problema2 = new Problema(2, "Arquivo2", "Problema 2", "Cod 2");
 
-    private static List<Problema> problemas = new ArrayList<>(Arrays.asList(problema1, problema2, problema3));
+    private static List<Problema> problemas = new ArrayList<>(Arrays.asList(problema1, problema2));
 
     // construtor private para garantir que a classe não pode ser inicializada.
     private ProblemaController() {
@@ -34,11 +32,11 @@ public final class ProblemaController {
     // comentando // context.json e descomentando context.result(problemas.toString()) e rode o programa novamente.
     // Não esqueça de utilizar o POSTMAN.
 
-    public static void getSpecialProblem(Context context){
+    public static void getSpecialProblem(Context context) {
 
-        for (Problema problema : problemas){
+        for (Problema problema : problemas) {
             String fileName = problema.getFilename();
-            if(fileName.contains(context.pathParam("special"))){
+            if (fileName.contains(context.pathParam("special"))) {
                 context.json(problema);
                 return;
             }
@@ -48,7 +46,7 @@ public final class ProblemaController {
 
     }
 
-    public static Context inserir(Context context){
+    public static Context inserir(Context context) {
 
         String problema = context.body();
         System.out.println(problema);
