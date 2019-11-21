@@ -21,5 +21,13 @@ public class ExecucaoPython {
     ScriptEngine engine = manager.getEngineByName("python");
     engine.eval(new FileReader("projeto-javelin/arquivos_py/hello.py"), context);
     System.out.println(writer.toString());
+    
+    String cmd = "python/";
+    String py = "file";
+    String run = "python  " +cmd+ py + ".py";
+    System.out.println(run);
+    //Runtime.getRuntime().exec(run);
+
+    Process p = Runtime.getRuntime().exec("python  file.py");
     */
 }
