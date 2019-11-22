@@ -1,6 +1,6 @@
-package br.edu.fatecsjc.projeto_javalin.controllers;
+package br.edu.fatecsjc.controllers;
 
-import br.edu.fatecsjc.projeto_javalin.models.Problema;
+import br.edu.fatecsjc.models.Problema;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;

@@ -1,8 +1,7 @@
-package br.edu.fatecsjc.projeto_javalin;
+package br.edu.fatecsjc;
 
-import br.edu.fatecsjc.projeto_javalin.controllers.ProblemaController;
+import br.edu.fatecsjc.controllers.ProblemaController;
 import io.javalin.Javalin;
-import io.javalin.http.Context;
 
 public class MainApplication {
 
@@ -20,7 +19,6 @@ public class MainApplication {
         // que não esteja em uso. Exemplo: Javalin.create().start(7002);
 
         app.get("/problemas/:special", ProblemaController::getSpecialProblem);
-
         app.post("/problemas", context -> ProblemaController.inserir(context));
 
     }

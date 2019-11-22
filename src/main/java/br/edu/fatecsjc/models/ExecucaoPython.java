@@ -1,4 +1,4 @@
-package br.edu.fatecsjc.projeto_javalin.models;
+package br.edu.fatecsjc.models;
 
 import java.io.IOException;
 
