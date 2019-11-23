@@ -10,10 +10,13 @@ public class ProblemaTest {
 
     private Problema problema;
 
-    // o método setup instancia um objeto que ser quer testar (Problema). Isso facilita,
-    // quando a classe que se quer testar tem muitos métodos de test em que cada um deles é
-    // necessário instanciar um objeto do mesmo tipo.
-    // Em resumo: antes de executar test1, test2, teste n... instancie um objeto.
+    // o método setup instancia um ou mais objetos para o qual deseja-se testar (Problema). Isso facilita, quando a classe a ser
+    // testada tem muitos métodos de test. Geralmente há necessidade de instanciar esse objeto dentro do corpo do método.
+    // Felizmente, com o setup, você faz isso uma vez só, e assim, setar os atributos da classe instanciada no setup.
+    //
+    // Geralmente testes não possuem mais de um assertion.
+    // Em resumo: antes de executar test1, test2, teste n... setup instancia um objeto que poderá ser utilizado em todos
+    // métodos de testes quais forem necessário o objeto em si.
 
     @BeforeEach
     void setup() {
@@ -21,7 +24,8 @@ public class ProblemaTest {
         problema = new Problema();
     }
 
-    @Test // todos testes no Junit devem ser marcados com a anotação @Test
+    @Test
+        // todos testes no Junit devem ser marcados com a anotação @Test
     void isSameObjectTest() {
 
         problema.setId(1);

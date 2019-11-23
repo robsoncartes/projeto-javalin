@@ -33,7 +33,7 @@ public class ExecucaoPython {
         this.saida_teste = saida_teste;
     }
 
-    public String getCommand(String entrada_teste, String saida_teste){
+    public String getCommand(String entrada_teste, String saida_teste) {
         return "python < " + entrada_teste + "> " + saida_teste;
     }
 
