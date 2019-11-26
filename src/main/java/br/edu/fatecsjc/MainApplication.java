@@ -11,10 +11,12 @@ public class MainApplication {
 
     public static void main(String[] args) {
 
-        Problema problema1 = new Problema(1, "Filename 1", "Problema 1", "Sourcecode 1");
+        Problema problema1 = new Problema(1, "zerinho.py", "A", "Sourcecode 1");
+        Problema problema2 = new Problema(1, "mergulho.py", "B", "Sourcecode 1");
 
         List<Problema> problemas = new ArrayList<>();
         problemas.add(problema1);
+        problemas.add(problema2);
 
         Javalin app = Javalin.create().start(7001);
 
