@@ -12,6 +12,12 @@ public class Problema {
     public Problema() {
     }
 
+    public Problema(Integer id, String filename, String problem) {
+        this.id = id;
+        this.filename = filename;
+        this.problem = problem;
+    }
+
     public Problema(Integer id, String filename, String problem, String sourcecode) {
         this.id = id;
         this.filename = filename;
@@ -43,8 +49,8 @@ public class Problema {
         this.problem = problem;
     }
 
-    public String getSourcecode() {
-        return sourcecode;
+    public byte[] getSourcecode() {
+        return sourcecode.getBytes();
     }
 
     public void setSourcecode(String sourcecode) {
