@@ -10,6 +10,9 @@ public class ExecucaoPython {
 
     private String saida_teste;
 
+    public ExecucaoPython() {
+    }
+
     public ExecucaoPython(String entrada_teste, String saida_teste) throws IOException {
         setEntrada_teste(entrada_teste);
         setSaida_teste(saida_teste);
@@ -38,8 +41,8 @@ public class ExecucaoPython {
     }
 
 
-//    private String run = "python < " + entrada_teste + "> " + saida_teste;
+    //    private String run = "python < " + entrada_teste + "> " + saida_teste;
 
-//    private System.out.println(String run);
+    //    private System.out.println(String run);
 
 }
