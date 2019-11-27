@@ -1,47 +1,41 @@
 package br.edu.fatecsjc.controllers;
 
-import br.edu.fatecsjc.models.Problema;
-import com.google.gson.Gson;
-import io.javalin.http.Context;
+import br.edu.fatecsjc.services.ProblemaService;
+import io.javalin.Javalin;
 
-import java.util.List;
-
-// final class para garantir que a mesma não pode ser herdada
 public final class ProblemaController {
 
-    private static List<Problema> problemas;
+    private ProblemaService problemaService;
 
-    // construtor private para garantir que a classe não pode ser inicializada.
-    private ProblemaController() {
+    public ProblemaController(Javalin javalin) {
+        problemaService = new ProblemaService();
+        getProblemas(javalin);
     }
 
-    private ProblemaController(List<Problema> problemas) {
-        ProblemaController.problemas = problemas;
-    }
+    public void getProblemas(Javalin javalin) {
 
-    // mostra um lista de objetos do tipo Problema convertidos para json
-    public static void getProblemas(List<Problema> problemas, Context context) {
-        context.json(problemas);
-    }
+        javalin.get("/maratona", context -> {
 
-    public static void getSpecialProblem(List<Problema> problemas, Context context) {
+            context.json(problemaService);
+            System.out.println("Http status code: " + context.status());
 
-        for (Problema problema : problemas) {
-            String fileName = problema.getFilename();
-            if (fileName.contains(context.pathParam("special"))) {
-                context.json(problema);
-                return;
-            }
-        }
-
-        context.status(404).result("Arquivo não encontrado.");
+        });
 
     }
 
-    public static Problema inserir(Context context) {
+    public void getProblemasById(Javalin javalin) {
+        javalin.get("/maratona/:id", context -> {
 
-        Gson gson = new Gson();
+            System.out.println("Http status code: " + context.status());
+        });
 
-        return gson.fromJson(context.body(), Problema.class);
+    }
+
+    public void postProblema(Javalin javalin) {
+
+        javalin.post("/maratona", context -> {
+
+            System.out.println("Http status code: " + context.status());
+        });
     }
 }
