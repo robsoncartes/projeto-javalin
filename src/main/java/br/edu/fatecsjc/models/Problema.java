@@ -49,8 +49,8 @@ public class Problema {
         this.problem = problem;
     }
 
-    public byte[] getSourcecode() {
-        return sourcecode.getBytes();
+    public String getSourcecode() {
+        return sourcecode;
     }
 
     public void setSourcecode(String sourcecode) {
