@@ -6,28 +6,45 @@ import java.io.IOException;
 
 
 public class ExecucaoPython {
+    //receber problema, path
+    //criar entidade resultado
 
-    private Process p;
+    public String excutaPython(Problema problema) throws IOException {
 
-    public Process getP() {
-        return p;
-    }
+        String path = "";
 
-    public void setP(Process p) {
-        this.p = p;
-    }
+        if (problema.getProblem() == "A"){
+            path = "./resorces/a-problem/";
+        } else if (problema.getProblem() == "B"){
+            path = "./resorces//b-problem/";
+        } else {
+            //
+        }
 
-    public ExecucaoPython() {
-    }
+        int indice = 1;
+        boolean tem_arquivo = true;
 
-    public void excutaPython(int indice) throws IOException {
-        String entrada = "arqEntradaCasoTeste" + indice + ".txt";
-        String saida = "arqSaidaCasoTeste" + indice + ".txt";
-        String command = "cmd.exe c/ python.py < " + entrada + " > " + saida;
-        Process p = Runtime.getRuntime().exec(command);
+        while(tem_arquivo){
+            try{
+                String entrada = "arqEntradaCasoTeste" + indice + ".txt";
+                /*String saida = "arqSaidaCasoTeste" + indice + "_.txt";*/
+                String command = "python " + path + "problema.py < " + entrada;
+                Process p = Runtime.getRuntime().exec(command);
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
-        String resultado = in.readLine();
+                indice +=1;
+
+                String resultado = in.readLine();
+
+                return resultado;
+
+            } catch (IOException io) {
+                io.printStackTrace();
+                tem_arquivo = false;
+                return "ERRO";
+            }
+        }
+        return "ERRO";
     }
 }
