@@ -15,6 +15,6 @@ public class ExecucaoPythonTest {
 //ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         Problema problema = new Problema();
         problema.setProblem("A");
-        Assertions.assertEquals("ABC", cut.excutaPython(problema));
+        Assertions.assertEquals("C", cut.excutaPython(problema));
     }
 }

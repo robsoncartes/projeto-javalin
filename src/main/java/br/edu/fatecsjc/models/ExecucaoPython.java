@@ -1,6 +1,9 @@
 package br.edu.fatecsjc.models;
 
+import com.sun.xml.internal.bind.v2.runtime.output.StAXExStreamWriterOutput;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
@@ -11,40 +14,43 @@ public class ExecucaoPython {
 
     public String excutaPython(Problema problema) throws IOException {
 
-        String path = "";
-
-        if (problema.getProblem() == "A"){
-            path = "./resorces/a-problem/";
-        } else if (problema.getProblem() == "B"){
-            path = "./resorces//b-problem/";
-        } else {
-            //
-        }
+        String programa = getResourcePath("/programa.py");
+        String entrada = "";
 
         int indice = 1;
-        boolean tem_arquivo = true;
 
-        while(tem_arquivo){
+        if (problema.getProblem().toUpperCase() == "A"){
+            entrada = getResourcePath("/a-problem/arqEntradaCasoTeste" + indice + ".txt");
+        } else {
+            entrada = getResourcePath("/b-problem/arqEntradaCasoTeste" + indice + ".txt");
+        }
+
+//        boolean tem_arquivo = true;
+
+//        while(tem_arquivo){
             try{
-                String entrada = "arqEntradaCasoTeste" + indice + ".txt";
-                /*String saida = "arqSaidaCasoTeste" + indice + "_.txt";*/
-                String command = "python " + path + "problema.py < " + entrada;
+                String command = "python3 " + programa + " < " + entrada;
                 Process p = Runtime.getRuntime().exec(command);
 
-                BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 
                 indice +=1;
 
-                String resultado = in.readLine();
+                String resultado = reader.readLine();
 
                 return resultado;
 
             } catch (IOException io) {
                 io.printStackTrace();
-                tem_arquivo = false;
+//                tem_arquivo = false;
                 return "ERRO";
             }
-        }
-        return "ERRO";
+  //      }
+  //      return "ERRO";
+    }
+
+    private String getResourcePath(String relativePath){
+        String programa = ExecucaoPython.class.getResource(relativePath).getPath();
+        return programa;
     }
 }
