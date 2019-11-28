@@ -6,10 +6,19 @@ import io.javalin.Javalin;
 public class MainApplication {
 
     public static void main(String[] args) {
+    	String arq = "input1.txt";
+    	LeituraDeArquivos.LerArquivo(arq);
+    	
+    	
+    	Javalin app = Javalin.create().start(7001);
 
-        Javalin app = Javalin.create().start(7001);
-
-        new ProblemaController(app);
+        ProblemaController controler = new ProblemaController(app);
+        controler.getProblemas(app);
+        controler.getProblemasById(app);
+        controler.postProblema(app);   
+        
+       
+        
 
     }
 }
