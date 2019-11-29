@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class LeituraDeArquivos {
 	public static void LerArquivo(String arq) {
 	//LEITURA DE ARQUIVOS
-    File file = new File("O:\\FATEC\\4º Semestre\\LPll Nadalete(Terça e Quarta)\\Projetos\\projeto-javalin\\src\\main\\java\\br\\edu\\fatecsjc\\resources\\Mergulho\\"+arq);
+    String path ="O:\\FATEC\\4º Semestre\\LPll Nadalete(Terça e Quarta)\\Projetos\\projeto-javalin\\src\\main\\java\\br\\edu\\fatecsjc\\resources\\Mergulho\\"; 
+	File file = new File(path+arq);
     Scanner sc = null;
     try {
     	sc = new Scanner(file);
