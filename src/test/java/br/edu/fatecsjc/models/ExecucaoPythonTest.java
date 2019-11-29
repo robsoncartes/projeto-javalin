@@ -10,11 +10,10 @@ public class ExecucaoPythonTest {
     private ExecucaoPython cut;
 
     @Test
-    public void testaResultado() throws IOException {
+    public void testaResultado() throws Exception {
         cut = new ExecucaoPython();
-//ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         Problema problema = new Problema();
-        problema.setProblem("A");
-        Assertions.assertEquals("C", cut.excutaPython(problema));
+        problema.setProblem("B");
+        Assertions.assertEquals(true, cut.excutaPython(problema));
     }
 }

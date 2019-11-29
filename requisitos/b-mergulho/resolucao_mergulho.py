@@ -1,11 +1,11 @@
 
-mr = input("Por favor entre com as quantidades de mergulhadores e regressados: ")
+mr = input()
 
 mr = mr.split(" ")
 
 if len(mr) == 2:
 
-    quem = input("Quais foram os mergulhadores que retornaram? ")
+    quem = input()
 
     mergulhadores = range(1, int(mr[0]) + 1)
     retornados = quem.split(" ")
@@ -19,7 +19,7 @@ if len(mr) == 2:
     if resultado == "":
         resultado = "*"
 
-    print ("Os Mergulhadores que retornaram foram :",resultado)
+    print (resultado)
 else:
-    print ("Prencha as duas informacoes")
+    print ()
     

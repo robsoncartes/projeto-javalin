@@ -6,7 +6,7 @@ def get_vencedor(index):
     elif index == 2:
         return "C"
 
-numeros_texto = input("Entre com os numeros escolhidos")
+numeros_texto = input()
 
 numeros = numeros_texto.split(" ")
 
