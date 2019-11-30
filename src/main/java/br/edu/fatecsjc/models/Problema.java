@@ -12,19 +12,6 @@ public class Problema {
     public Problema() {
     }
 
-    public Problema(Integer id, String filename, String problem) {
-        this.id = id;
-        this.filename = filename;
-        this.problem = problem;
-    }
-
-    public Problema(Integer id, String filename, String problem, String sourcecode) {
-        this.id = id;
-        this.filename = filename;
-        this.problem = problem;
-        this.sourcecode = sourcecode;
-    }
-
     public Integer getId() {
         return id;
     }
