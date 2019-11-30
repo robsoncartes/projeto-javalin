@@ -1,47 +1,51 @@
 package br.edu.fatecsjc.controllers;
 
 import br.edu.fatecsjc.models.Problema;
+import br.edu.fatecsjc.services.ProblemaService;
 import com.google.gson.Gson;
-import io.javalin.http.Context;
+import io.javalin.Javalin;
 
 import java.util.List;
 
-// final class para garantir que a mesma não pode ser herdada
 public final class ProblemaController {
 
-    private static List<Problema> problemas;
+    private ProblemaService problemaService;
 
-    // construtor private para garantir que a classe não pode ser inicializada.
-    private ProblemaController() {
+    public ProblemaController(Javalin javalin) {
+        problemaService = new ProblemaService();
+        getProblemas(javalin);
+        postProblema(javalin);
     }
 
-    private ProblemaController(List<Problema> problemas) {
-        ProblemaController.problemas = problemas;
+    public void getProblemas(Javalin javalin) {
+
+        javalin.get("/maratona", context -> {
+
+            List<Problema> problemas = problemaService.getProblemas();
+            context.json(problemas);
+
+            System.out.println("Http status code: " + context.status());
+
+        });
     }
 
-    // mostra um lista de objetos do tipo Problema convertidos para json
-    public static void getProblemas(List<Problema> problemas, Context context) {
-        context.json(problemas);
+    public void postProblema(Javalin javalin) {
+
+        javalin.post("/maratona", context -> {
+
+            Gson gson = new Gson();
+            Problema problema = gson.fromJson(context.body(), Problema.class);
+
+            System.out.println(problema.toString()); // remover depois
+            problemaService.adicionar(problema);
+            System.out.println("Http status code: " + context.status());
+        });
     }
 
-    public static void getSpecialProblem(List<Problema> problemas, Context context) {
+    public void getProblemasById(Javalin javalin) {
+        javalin.get("/maratona/:id", context -> {
 
-        for (Problema problema : problemas) {
-            String fileName = problema.getFilename();
-            if (fileName.contains(context.pathParam("special"))) {
-                context.json(problema);
-                return;
-            }
-        }
-
-        context.status(404).result("Arquivo não encontrado.");
-
-    }
-
-    public static Problema inserir(Context context) {
-
-        Gson gson = new Gson();
-
-        return gson.fromJson(context.body(), Problema.class);
+            System.out.println("Http status code: " + context.status());
+        });
     }
 }
