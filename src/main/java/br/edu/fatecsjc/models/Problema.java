@@ -1,5 +1,10 @@
 package br.edu.fatecsjc.models;
 
+import br.edu.fatecsjc.models.enums.Status;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class Problema {
@@ -8,6 +13,8 @@ public class Problema {
     private String filename;
     private String problem;
     private String sourcecode;
+    private Date data;
+    private Status status;
 
     public Problema() {
     }
@@ -43,6 +50,31 @@ public class Problema {
     public void setSourcecode(String sourcecode) {
         this.sourcecode = sourcecode;
     }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    /*
+    public String getFormattedDate() {
+
+        String strDateFormat = "dd/MM/yyyy hh:mm:ss a";
+        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
+
+        return dateFormat.format(this.data);
+    }*/
 
     @Override
     public boolean equals(Object o) {

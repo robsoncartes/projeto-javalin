@@ -1,9 +1,11 @@
 package br.edu.fatecsjc.controllers;
 
+import br.edu.fatecsjc.models.ExecucaoPython;
 import br.edu.fatecsjc.models.Problema;
 import br.edu.fatecsjc.services.ProblemaService;
 import com.google.gson.Gson;
 import io.javalin.Javalin;
+import io.javalin.http.Context;
 
 import java.util.List;
 
@@ -15,6 +17,8 @@ public final class ProblemaController {
         problemaService = new ProblemaService();
         getProblemas(javalin);
         postProblema(javalin);
+        //getProblemasById(javalin);
+        comparar(javalin);
     }
 
     public void getProblemas(Javalin javalin) {
@@ -42,10 +46,26 @@ public final class ProblemaController {
         });
     }
 
+    /*
     public void getProblemasById(Javalin javalin) {
         javalin.get("/maratona/:id", context -> {
 
             System.out.println("Http status code: " + context.status());
+        });
+    }
+
+     */
+
+
+    public void comparar(Javalin javalin){
+
+        javalin.get("/maratona/:id", context -> {
+
+            List<Problema> problemas = problemaService.getProblemas();
+
+            for (Problema problema : problemas){
+                problemaService.comparaResultado(problemas, problema.getId(), context);
+            }
         });
     }
 }
