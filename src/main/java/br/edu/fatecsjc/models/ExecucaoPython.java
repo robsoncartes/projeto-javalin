@@ -10,11 +10,9 @@ public class ExecucaoPython {
     //    public String excutaPython(Problema problema) throws IOException {
     public boolean excutaPython(Problema problema) throws Exception {
         //instancia LeituraArquivos
-        LeituraDeArquivos la = new LeituraDeArquivos();
 
         //busca programa nos resources
-        String programa = getResourcePath("/programa.py");
-//        String programa = getResourcePath("/" + problema.getFilename());
+        String programa = getResourcePath("/" + problema.getFilename());
 
         //inicia strings de entrada e saida
         String entrada = "";
@@ -73,8 +71,8 @@ public class ExecucaoPython {
 
                 int exitCode = process.waitFor();
 //                teste de resultados e arquivo de saida esperada
-                System.out.println(resultado);
-                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
+//                System.out.println(resultado);
+//                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
 
                 if (!resultado.equals(LeituraDeArquivos.leArquivo(saidaEsperada))) {
                     return false;
