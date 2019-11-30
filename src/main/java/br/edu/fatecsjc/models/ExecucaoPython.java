@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 
-public class ExecucaoPython extends LeituraDeArquivos {
+public class ExecucaoPython {
 
     //    public String excutaPython(Problema problema) throws IOException {
     public boolean excutaPython(Problema problema) throws Exception {
@@ -14,6 +14,7 @@ public class ExecucaoPython extends LeituraDeArquivos {
 
         //busca programa nos resources
         String programa = getResourcePath("/programa.py");
+//        String programa = getResourcePath("/" + problema.getFilename());
 
         //inicia strings de entrada e saida
         String entrada = "";
@@ -26,7 +27,7 @@ public class ExecucaoPython extends LeituraDeArquivos {
         ProcessBuilder processBuilder = new ProcessBuilder();
 
         //indice para busca de arquivos / inicia em 1
-        int indice = 1;
+        int indice = 2;
 
         String resultado = "";
 
@@ -72,8 +73,8 @@ public class ExecucaoPython extends LeituraDeArquivos {
 
                 int exitCode = process.waitFor();
 //                teste de resultados e arquivo de saida esperada
-//                System.out.println(resultado);
-//                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
+                System.out.println(resultado);
+                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
 
                 if (!resultado.equals(LeituraDeArquivos.leArquivo(saidaEsperada))) {
                     return false;
