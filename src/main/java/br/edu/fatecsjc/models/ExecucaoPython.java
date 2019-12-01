@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 public class ExecucaoPython {
 
     //    public String excutaPython(Problema problema) throws IOException {
-    public boolean excutaPython(Problema problema) throws Exception {
+    public String excutaPython(Problema problema) throws Exception {
         //instancia LeituraArquivos
 
         //busca programa nos resources
@@ -20,7 +20,7 @@ public class ExecucaoPython {
         String saidaEsperada = "";
 
         //flag para validacao dos casos de teste
-        boolean valido = true;
+        String valido = "SUCCESS";
 
         //construtor do processo que executará o comando
         ProcessBuilder processBuilder = new ProcessBuilder();
@@ -72,7 +72,7 @@ public class ExecucaoPython {
     //                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
 
                     if (!resultado.equals(LeituraDeArquivos.leArquivo(saidaEsperada))) {
-                        return false;
+                        return "FAIL";
                     }
 
                     //reseta resultado
