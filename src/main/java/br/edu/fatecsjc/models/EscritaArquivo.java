@@ -7,7 +7,7 @@ public class EscritaArquivo {
     public void gravar(String sourceCode, String filename) throws IOException {
 //        String sourceCode = problema.getSourcecode();
 
-        String path = "src/main/resources/";
+        String path = "target/classes/";
 
         File arquivo = new File(path + filename);
 

@@ -13,6 +13,7 @@ public class ExecucaoPython {
 
         //busca programa nos resources
         String programa = getResourcePath("/" + problema.getFilename());
+        System.out.println(programa);
 
         //inicia strings de entrada e saida
         String entrada = "";
@@ -35,58 +36,54 @@ public class ExecucaoPython {
         do {
 
             //define qual problema será executado e busca nos resources
-            if (problema.getProblem().toUpperCase() == "A"){
+            if (problema.getProblem().toUpperCase().equals("A")){
                 entrada = getResourcePath("/a-problem/arqEntradaCasoTeste" + indice + ".txt");
-            } else {
-                entrada = getResourcePath("/b-problem/arqEntradaCasoTeste" + indice + ".txt");
-            }
-
-            if (problema.getProblem().toUpperCase() == "A"){
                 saidaEsperada = getResourcePath("/a-problem/arqSaidaEsperada" + indice + ".txt");
             } else {
+                entrada = getResourcePath("/b-problem/arqEntradaCasoTeste" + indice + ".txt");
                 saidaEsperada = getResourcePath("/b-problem/arqSaidaEsperada" + indice + ".txt");
             }
 
             if (entrada != null && saidaEsperada != null){
 
-            //tenta executar o comando
-            try {
+                //tenta executar o comando
+                try {
 
-                String command = "python3 " + programa + " < " + entrada;
+                    String command = "python3 " + programa + " < " + entrada;
 
-                //comando para MAC
-                processBuilder.command("bash", "-c", command);
+                    //comando para MAC
+                    processBuilder.command("bash", "-c", command);
 
-                //comando para Windows deve ser esse:
-                //processBuilder.command("cmd.exe", "\c", command);
-                Process process = processBuilder.start();
+                    //comando para Windows deve ser esse:
+                    //processBuilder.command("cmd.exe", "\c", command);
+                    Process process = processBuilder.start();
 
-                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
-                String output;
+                    String output;
 
-                while ((output = reader.readLine()) != null) {
-                    resultado += output;
-                }
+                    while ((output = reader.readLine()) != null) {
+                        resultado += output;
+                    }
 
-                int exitCode = process.waitFor();
-//                teste de resultados e arquivo de saida esperada
-//                System.out.println(resultado);
-//                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
+                    int exitCode = process.waitFor();
+    //                teste de resultados e arquivo de saida esperada
+    //                System.out.println(resultado);
+    //                System.out.println(LeituraDeArquivos.leArquivo(saidaEsperada));
 
-                if (!resultado.equals(LeituraDeArquivos.leArquivo(saidaEsperada))) {
-                    return false;
-                }
+                    if (!resultado.equals(LeituraDeArquivos.leArquivo(saidaEsperada))) {
+                        return false;
+                    }
 
-                //reseta resultado
-                resultado = "";
+                    //reseta resultado
+                    resultado = "";
 
-                //excecoes obrigatorias
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                    //excecoes obrigatorias
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                 indice +=1;
             }

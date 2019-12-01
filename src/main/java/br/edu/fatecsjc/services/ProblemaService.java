@@ -32,9 +32,9 @@ public class ProblemaService implements Serializable {
 
         escritaArquivo.gravar(decodeBase64.decode(problema.getSourcecode()), problema.getFilename());
 
-        boolean resultado = execucaoPython.excutaPython(problema);
+        boolean validacaoSourcecode = execucaoPython.excutaPython(problema);
 
-        System.out.println(resultado);
+        System.out.println(validacaoSourcecode);
 
     }
 
