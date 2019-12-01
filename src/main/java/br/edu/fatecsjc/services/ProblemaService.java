@@ -1,15 +1,11 @@
 package br.edu.fatecsjc.services;
 
-import br.edu.fatecsjc.controllers.ProblemaController;
 import br.edu.fatecsjc.models.ExecucaoPython;
 import br.edu.fatecsjc.models.*;
 import br.edu.fatecsjc.utils.DecodeBase64;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import io.javalin.http.Context;
-
-import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,16 +33,53 @@ public class ProblemaService implements Serializable {
 
         problemas.add(problema);
 
-        escritaArquivo.gravar(decodeBase64.decode(problema.getSourcecode()), problema.getFilename());
+        String sourcecode = decodeBase64.decode(problema.getSourcecode());
 
-        resultado.setId(problema.getId());
+        escritaArquivo.gravar(sourcecode, problema.getFilename());
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyy HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+
+
+        resultado.setId(getResultados().size()+1);
         resultado.setFilename(problema.getFilename());
         resultado.setProblem(problema.getProblem());
+        resultado.setSourcecode(sourcecode);
         resultado.setStatus(execucaoPython.excutaPython(problema));
+        resultado.setData(dtf.format(now));
 
         resultados.add(resultado);
 
         return resultado;
+    }
 
+    public Resultado buscarId(String id){
+        for(Resultado resultado:resultados){
+            if(resultado.getId()== Integer.parseInt(id)) return resultado;
+        }
+
+        return null;
+    }
+
+    public List<Resultado> buscarStatus(String status) {
+
+        List<Resultado> resultadosEncontrados = new ArrayList<>();
+
+        for(Resultado resultado:resultados){
+            if(resultado.getStatus().equals(status.toUpperCase())) resultadosEncontrados.add(resultado);
+        }
+
+        return resultadosEncontrados;
+    }
+
+    public List<Resultado> buscarData(String data) {
+
+        List<Resultado> resultadosEncontrados = new ArrayList<>();
+
+        for(Resultado resultado:resultados){
+            if(resultado.getStatus().contains(data)) resultadosEncontrados.add(resultado);
+        }
+
+        return resultadosEncontrados;
     }
 }

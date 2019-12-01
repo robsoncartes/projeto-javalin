@@ -1,24 +1,22 @@
 package br.edu.fatecsjc.models;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Resultado {
 
     private int id;
     private String filename;
     private String problem;
+    private String sourcecode;
     private String status;
-    private Date data;
+    private String data;
 
     public Resultado() {
     }
 
-    public Resultado(int id, String filename, String problem, String status, Date data) {
+    public Resultado(int id, String filename, String problem, String sourcecode, String status, String data) {
         setId(id);
         setFilename(filename);
         setProblem(problem);
+        setSourcecode(sourcecode);
         setStatus(status);
         setData(data);
     }
@@ -47,6 +45,14 @@ public class Resultado {
         this.problem = problem;
     }
 
+    public String getSourcecode() {
+        return sourcecode;
+    }
+
+    public void setSourcecode(String sourcecode) {
+        this.sourcecode = sourcecode;
+    }
+
     public String getStatus() {
         return status;
     }
@@ -55,22 +61,17 @@ public class Resultado {
         this.status = status;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-//    public String getFormattedData() {
-//        String strDateFormat = "dd/MM/yyyy hh:mm:ss";
-//        DateFormat dateFormat = new SimpleDateFormat(strDateFormat);
-//        return dateFormat.format(this.data);
-//    }
-
     @Override
     public String toString() {
+
         return "Resultado{" +
                 "id=" + id +
                 ", filename='" + filename + '\'' +

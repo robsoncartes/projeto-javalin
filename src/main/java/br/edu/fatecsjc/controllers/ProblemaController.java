@@ -6,7 +6,6 @@ import br.edu.fatecsjc.services.ProblemaService;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import io.javalin.Javalin;
-import io.javalin.http.*;
 import java.util.List;
 
 public final class ProblemaController {
@@ -18,6 +17,8 @@ public final class ProblemaController {
         getProblemas(javalin);
         postProblema(javalin);
         getResultados(javalin);
+        getResultadosId(javalin);
+        getResultadosStatus(javalin);
     }
 
     public void getProblemas(Javalin javalin) {
@@ -26,8 +27,6 @@ public final class ProblemaController {
 
             List<Problema> problemas = problemaService.getProblemas();
             context.json(problemas);
-
-            System.out.println("Http status code: " + context.status());
 
         });
     }
@@ -39,17 +38,12 @@ public final class ProblemaController {
             Gson gson = new Gson();
             Problema problema = gson.fromJson(context.body(), Problema.class);
 
-//            Resultado resultado = new Resultado();
-
             System.out.println(problema.toString()); // remover depois
             Resultado resultado = problemaService.rodaMaratona(problema);
             System.out.println("Http status code: " + context.status());
 
             context.json(resultado);
 
-            for (Resultado r : problemaService.getResultados()){
-                System.out.println(r.toString());
-            }
         });
     }
 
@@ -62,6 +56,30 @@ public final class ProblemaController {
 
             System.out.println("Http status code: " + context.status());
 
+        });
+    }
+
+    public void getResultadosId(Javalin javalin) {
+        javalin.get("/maratona/id/:id", context -> {
+
+            Resultado resultadoEncontrado = problemaService.buscarId(context.pathParam(":id"));
+            context.json(resultadoEncontrado);
+        });
+    }
+
+    public void getResultadosStatus(Javalin javalin) {
+        javalin.get("/maratona/status/:status", context -> {
+
+            List<Resultado> resultadoEncontrado = problemaService.buscarStatus(context.pathParam(":status"));
+            context.json(resultadoEncontrado);
+        });
+    }
+
+    public void getResultadosData(Javalin javalin) {
+        javalin.get("/maratona/data/:data", context -> {
+
+            List<Resultado> resultadoEncontrado = problemaService.buscarData(context.pathParam(":data"));
+            context.json(resultadoEncontrado);
         });
     }
 

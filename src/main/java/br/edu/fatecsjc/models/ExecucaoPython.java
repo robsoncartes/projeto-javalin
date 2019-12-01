@@ -26,7 +26,7 @@ public class ExecucaoPython {
         ProcessBuilder processBuilder = new ProcessBuilder();
 
         //indice para busca de arquivos / inicia em 1
-        int indice = 2;
+        int indice = 1;
 
         String resultado = "";
 
