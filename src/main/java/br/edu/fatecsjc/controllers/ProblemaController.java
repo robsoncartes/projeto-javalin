@@ -4,7 +4,6 @@ import br.edu.fatecsjc.models.Problema;
 import br.edu.fatecsjc.models.Resultado;
 import br.edu.fatecsjc.services.ProblemaService;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import io.javalin.Javalin;
 import java.util.List;
 
@@ -19,6 +18,7 @@ public final class ProblemaController {
         getResultados(javalin);
         getResultadosId(javalin);
         getResultadosStatus(javalin);
+        getResultadosData(javalin);
     }
 
     public void getProblemas(Javalin javalin) {
@@ -53,8 +53,6 @@ public final class ProblemaController {
 
             List<Resultado> resultados = problemaService.getResultados();
             context.json(resultados);
-
-            System.out.println("Http status code: " + context.status());
 
         });
     }

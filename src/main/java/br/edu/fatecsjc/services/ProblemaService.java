@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProblemaService implements Serializable {
-    private static Integer serialversionuid = 1;
 
     private List<Problema> problemas = new ArrayList<>();
     private List<Resultado> resultados = new ArrayList<>();
@@ -37,7 +36,7 @@ public class ProblemaService implements Serializable {
 
         escritaArquivo.gravar(sourcecode, problema.getFilename());
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("ddMMyyyy HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
 
 
@@ -77,7 +76,7 @@ public class ProblemaService implements Serializable {
         List<Resultado> resultadosEncontrados = new ArrayList<>();
 
         for(Resultado resultado:resultados){
-            if(resultado.getStatus().contains(data)) resultadosEncontrados.add(resultado);
+            if(resultado.getData().contains(data)) resultadosEncontrados.add(resultado);
         }
 
         return resultadosEncontrados;

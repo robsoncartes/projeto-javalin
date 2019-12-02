@@ -13,7 +13,6 @@ public class ExecucaoPython {
 
         //busca programa nos resources
         String programa = getResourcePath("/" + problema.getFilename());
-        System.out.println(programa);
 
         //inicia strings de entrada e saida
         String entrada = "";
