@@ -3,7 +3,7 @@
 ### Disciplina: Linguagem de Programação II
 
 **Tema:** Utilização de Lightweight Frameworks para Desenvolvimento Web \
-[![license mit](https://img.shields.io/github/license/robsoncartes/projeto-javalin?color=RED)](https://img.shields.io/github/license/robsoncartes/projeto-javalin/blob/master/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/robsoncartes/projeto-javalin?color=red)](https://img.shields.io/github/license/robsoncartes/projeto-javalin/blob/master/LICENSE.md)
 
 
 |	**Ano**		|	**Semestre**	|	**Código Disciplina**	|		   **Professor**		|
