@@ -24,7 +24,8 @@
 [Enunciado do Problema 1: Zerinho ou Um](https://github.com/robsoncartes/projeto-javalin/blob/master/requisitos/a-zerinho-o-um/a-zerinho-ou-um.pdf) \
 [Enunciado do Problema 2: Mergulho](https://github.com/robsoncartes/projeto-javalin/blob/master/requisitos/b-mergulho/b-mergulho.pdf) \
 [Enunciado Final do Trabalho](https://github.com/robsoncartes/projeto-javalin/blob/master/requisitos/trabalho-final.pdf) \
-[Apresentação dos Slides](https://github.com/robsoncartes/projeto-javalin/blob/master/apresentacao/JAVALIN-LP2.pdf)
+[Apresentação dos Slides](https://github.com/robsoncartes/projeto-javalin/blob/master/apresentacao/JAVALIN-LP2.pdf) \
+[Comandos GIT](https://github.com/robsoncartes/projeto-javalin/blob/master/material-apoio/GIT-COMMANDS.md)
 
 ### Links Uteis
 
