@@ -2,7 +2,9 @@
 ### Curso: Tecnologia em Banco de Dados
 ### Disciplina: Linguagem de Programação II
 
-**Tema:** Utilização de Lightweight Frameworks para Desenvolvimento Web
+**Tema:** Utilização de Lightweight Frameworks para Desenvolvimento Web \
+[![license mit](https://img.shields.io/github/license/robsoncartes/projeto-javalin?color=RED)](https://img.shields.io/github/license/robsoncartes/projeto-javalin/blob/master/LICENSE.md)
+
 
 |	**Ano**		|	**Semestre**	|	**Código Disciplina**	|		   **Professor**		|
 |:-------------:|:-----------------:|:-------------------------:|:-----------------------------:|
