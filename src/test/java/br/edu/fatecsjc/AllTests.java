@@ -10,6 +10,4 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({ProblemaTest.class, ExecucaoPythonTest.class})
 public class AllTests {
 
-
-
 }

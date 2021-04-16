@@ -6,27 +6,20 @@ import java.util.Scanner;
 
 public class LeituraDeArquivos {
 
-    public static String leArquivo(String arquivo) throws IOException{
-        //LEITURA DE ARQUIVOS
+    public static String leArquivo(String arquivo) throws IOException {
 
-        //inicia conteudo
-        String conteudo = "";
+
+        // inicia conteúdo
+        StringBuilder conteudo = new StringBuilder();
 
         File file = new File(arquivo);
-        Scanner sc = null;
-        try {
-            sc = new Scanner(file);
-            while(sc.hasNextLine()) {
-                conteudo += sc.nextLine();
+        try (Scanner sc = new Scanner(file)) {
+            while (sc.hasNextLine()) {
+                conteudo.append(sc.nextLine());
             }
-        }catch(IOException e) {
-            System.out.println("Error: "+e.getMessage());
-        }finally {
-            if(sc!=null) {
-                sc.close();
-            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
-        return conteudo;
+        return conteudo.toString();
     }
-
 }

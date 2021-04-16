@@ -1,6 +1,5 @@
 package br.edu.fatecsjc.utils;
 
-import br.edu.fatecsjc.models.Problema;
 import org.apache.commons.codec.binary.Base64;
 
 public class DecodeBase64 {

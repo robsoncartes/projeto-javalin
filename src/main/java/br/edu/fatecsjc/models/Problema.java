@@ -1,7 +1,5 @@
 package br.edu.fatecsjc.models;
 
-import java.util.Objects;
-
 public class Problema {
 
     private String filename;
@@ -9,18 +7,8 @@ public class Problema {
     private String sourcecode;
 
     public Problema() {
-    }
 
-//    public Problema(String filename, String problem) {
-//        this.filename = filename;
-//        this.problem = problem;
-//    }
-//
-//    public Problema(String filename, String problem, String sourcecode) {
-//        this.filename = filename;
-//        this.problem = problem;
-//        this.sourcecode = sourcecode;
-//    }
+    }
 
     public String getFilename() {
         return filename;

@@ -12,15 +12,6 @@ public class Resultado {
     public Resultado() {
     }
 
-    public Resultado(int id, String filename, String problem, String sourcecode, String status, String data) {
-        setId(id);
-        setFilename(filename);
-        setProblem(problem);
-        setSourcecode(sourcecode);
-        setStatus(status);
-        setData(data);
-    }
-
     public int getId() {
         return id;
     }

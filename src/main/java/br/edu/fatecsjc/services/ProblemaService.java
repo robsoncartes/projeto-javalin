@@ -1,8 +1,11 @@
 package br.edu.fatecsjc.services;
 
+import br.edu.fatecsjc.models.EscritaArquivo;
 import br.edu.fatecsjc.models.ExecucaoPython;
-import br.edu.fatecsjc.models.*;
+import br.edu.fatecsjc.models.Problema;
+import br.edu.fatecsjc.models.Resultado;
 import br.edu.fatecsjc.utils.DecodeBase64;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -11,8 +14,8 @@ import java.util.List;
 
 public class ProblemaService implements Serializable {
 
-    private List<Problema> problemas = new ArrayList<>();
-    private List<Resultado> resultados = new ArrayList<>();
+    private final List<Problema> problemas = new ArrayList<>();
+    private final List<Resultado> resultados = new ArrayList<>();
 
     DecodeBase64 decodeBase64 = new DecodeBase64();
     EscritaArquivo escritaArquivo = new EscritaArquivo();
@@ -24,7 +27,10 @@ public class ProblemaService implements Serializable {
     public List<Problema> getProblemas() {
         return problemas;
     }
-    public List<Resultado> getResultados() {return resultados; };
+
+    public List<Resultado> getResultados() {
+        return resultados;
+    }
 
     public Resultado rodaMaratona(Problema problema) throws Exception {
 
@@ -40,7 +46,7 @@ public class ProblemaService implements Serializable {
         LocalDateTime now = LocalDateTime.now();
 
 
-        resultado.setId(getResultados().size()+1);
+        resultado.setId(getResultados().size() + 1);
         resultado.setFilename(problema.getFilename());
         resultado.setProblem(problema.getProblem());
         resultado.setSourcecode(sourcecode);
@@ -52,9 +58,9 @@ public class ProblemaService implements Serializable {
         return resultado;
     }
 
-    public Resultado buscarId(String id){
-        for(Resultado resultado:resultados){
-            if(resultado.getId()== Integer.parseInt(id)) return resultado;
+    public Resultado buscarId(String id) {
+        for (Resultado resultado : resultados) {
+            if (resultado.getId() == Integer.parseInt(id)) return resultado;
         }
 
         return null;
@@ -64,8 +70,8 @@ public class ProblemaService implements Serializable {
 
         List<Resultado> resultadosEncontrados = new ArrayList<>();
 
-        for(Resultado resultado:resultados){
-            if(resultado.getStatus().equals(status.toUpperCase())) resultadosEncontrados.add(resultado);
+        for (Resultado resultado : resultados) {
+            if (resultado.getStatus().equals(status.toUpperCase())) resultadosEncontrados.add(resultado);
         }
 
         return resultadosEncontrados;
@@ -75,8 +81,8 @@ public class ProblemaService implements Serializable {
 
         List<Resultado> resultadosEncontrados = new ArrayList<>();
 
-        for(Resultado resultado:resultados){
-            if(resultado.getData().contains(data)) resultadosEncontrados.add(resultado);
+        for (Resultado resultado : resultados) {
+            if (resultado.getData().contains(data)) resultadosEncontrados.add(resultado);
         }
 
         return resultadosEncontrados;
