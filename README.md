@@ -5,6 +5,8 @@
 **Tema:** Utilização de Lightweight Frameworks para Desenvolvimento Web \
 [![GitHub](https://img.shields.io/github/license/robsoncartes/projeto-javalin?color=red)](https://img.shields.io/github/license/robsoncartes/projeto-javalin/blob/master/LICENSE.md)
 
+![](apresentacao/javalin.png)
+
 |	**Ano**		|	**Semestre**	|	**Código Disciplina**	|		   **Professor**		|
 |:-------------:|:-----------------:|:-------------------------:|:-----------------------------:|
 | 	  2019 		|		 3			| 			ILP102			|  Me. Lucas Gonçalves Nadalete |
@@ -27,8 +29,6 @@
 [Enunciado Final do Trabalho](https://github.com/robsoncartes/projeto-javalin/blob/master/requisitos/trabalho-final.pdf) \
 [Apresentação dos Slides](https://github.com/robsoncartes/projeto-javalin/blob/master/apresentacao/JAVALIN-LP2.pdf) \
 [Comandos GIT](https://github.com/robsoncartes/projeto-javalin/blob/master/material-apoio/GIT-COMMANDS.md)
-
-![](apresentacao/javalin.png) \
 
 ### Links Uteis
 
