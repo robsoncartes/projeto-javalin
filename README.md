@@ -11,14 +11,14 @@
 
 ### Membros do Grupo
 
-|		**Nome**    	|				**Github**            	|
-|:--------------------:	|:---------------------------------:	|
-| Henrique Castro  		| 					N/A 				|
-| Kleber Nascimento 	| https://github.com/kleberrogerio  	|
-| Maria Oliveira		| https://github.com/oliveiramclaraa 	|
-| Matheus Luiz 			| 					N/A					|
-| Otavio Raposo 		| https://github.com/otavio-raposo		|
-| Robson Sousa 			| https://github.com/robsoncartes 		|
+|     **Nome**	     |             **Github**             |
+|:-----------------:|:----------------------------------:|
+|  Henrique Castro  |                N/A                 |
+| Kleber Nascimento |  https://github.com/kleberrogerio  |
+|  Maria Oliveira   | https://github.com/oliveiramclaraa |
+|   Matheus Luiz    |                N/A                 |
+|   Otavio Raposo   |  https://github.com/otavio-raposo  |
+|   Robson Sousa    |  https://github.com/robsoncartes   |
 
 ### Requisitos
 
@@ -28,7 +28,7 @@
 [Apresentação dos Slides](https://github.com/robsoncartes/projeto-javalin/blob/master/apresentacao/JAVALIN-LP2.pdf) \
 [Comandos GIT](https://github.com/robsoncartes/projeto-javalin/blob/master/material-apoio/GIT-COMMANDS.md)
 
-![](apresentacao/javalin.png) \
+![](apresentacao/javalin.png)
 
 ### Links Uteis
 
